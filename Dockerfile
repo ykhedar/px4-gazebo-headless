@@ -58,4 +58,7 @@ COPY sitl_rtsp_proxy ${SITL_RTSP_PROXY}
 RUN cmake -B${SITL_RTSP_PROXY}/build -H${SITL_RTSP_PROXY}
 RUN cmake --build ${SITL_RTSP_PROXY}/build
 
+RUN curl -L https://github.com/mavlink/MAVSDK/releases/download/v0.34.0/mavsdk_server_manylinux2010-x64 -o /root/mavsdk_server
+RUN chmod +x /root/mavsdk_server
+
 ENTRYPOINT ["/root/entrypoint.sh"]
